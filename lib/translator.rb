@@ -16,12 +16,9 @@ def get_japanese_emoticon(file_path, emoticon)
   emoji == nil ? "Sorry, that emoticon was not found" : emoji[1]
 end
 
-def get_english_meaning(path, emoticon)
+def get_english_meaning(file_path, emoticon)
   # code goes here
-  emoji = load_library(path)
-  if emoji["get_meaning"].has_key?(emoticon)
-    emoji["get_meaning"][emoticon]
-  else
-    return "Sorry, that emoticon was not found"
-  end
+  emoticons = load_library(file_path)
+  emoji = emoticons.find {|name, faces| faces[1] == emoticon }
+  emoji == nil ? "Sorry, that emoticon was not found" : emoji[0]
 end
