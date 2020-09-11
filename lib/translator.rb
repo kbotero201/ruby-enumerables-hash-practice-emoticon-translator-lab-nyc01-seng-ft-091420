@@ -3,7 +3,7 @@
 def load_library
   # code goes here
   require 'yaml'
-  pet_array= YAML.load('lib/emoticons.yml')
+  pet_array= YAML.load_file('lib/emoticons.yml')
   pet_array
 end
 
