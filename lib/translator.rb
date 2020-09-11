@@ -1,6 +1,6 @@
 # require modules here
 
-def load_library(emoticon_file)
+def load_library(path)
   # code goes here
   emoji_hash = {}
   emoji_hash["get_meaning"] = {}
@@ -14,11 +14,14 @@ def load_library(emoticon_file)
 end
 
 
-def get_japanese_emoticon
+def get_japanese_emoticon(path, emoticon)
   # code goes here]
-  emoticon_lib = load_library(emoticon_file)
-  japanese_emoticon = emoticon_lib['get_emoticon'][emoticon]
-  japanese_emoticon ? japanese_emoticon : 'Sorry, that emoticon was not found'
+  emoji = load_library(path)
+  if emoji["get_emoticon"].has_key?(emoticon)
+    emoji["get_emoticon"][emoticon]
+  else
+    return "Sorry, that emoticon was not found"
+  end
 end
 
 def get_english_meaning
